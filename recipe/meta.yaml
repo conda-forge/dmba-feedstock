@@ -24,6 +24,7 @@ requirements:
     - matplotlib-base
     - pandas
     - scikit-learn
+    - graphviz
 
 test:
   imports:
