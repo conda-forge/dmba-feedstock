@@ -1,5 +1,5 @@
 {% set name = "dmba" %}
-{% set version = "0.2.2" %}
+{% set version = "0.2.3" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/dmba-{{ version }}.tar.gz
-  sha256: 0a0b56cbc26cbb4fe99cc5ca5795411090ef30f6de5c3afc4746230248511ee3
+  sha256: fb89275326e450781c1e7dd7490c7fc01fb5f3e3c4be250729e8b910cf2a1496
 
 build:
   number: 0
