@@ -1,0 +1,56 @@
+schema_version: 1
+
+context:
+  name: dmba
+  version: "0.2.4"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/dmba-${{ version }}.tar.gz
+  sha256: 204a02311734a98b6c8e8ce62c692ba0066c33d6da5b468cb44cba9e7d19ef41
+
+build:
+  number: 2
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv
+
+requirements:
+  host:
+    - pip
+    - python ${{ python_min }}.*
+    - setuptools
+  run:
+    - python >=${{ python_min }}
+    - matplotlib-base
+    - pandas
+    - scikit-learn
+    - python-graphviz
+
+tests:
+  - python:
+      imports:
+        - dmba
+        - dmba.tests
+      pip_check: true
+      python_version:
+        - ${{ python_min }}
+        - "*"
+
+about:
+  license: MIT
+  license_file: LICENSE
+  summary: "Data Mining for Business Analytics: Concepts, Techniques, and Applications in Python"
+  description: |
+    Data Mining for Business Analytics: Concepts, Techniques, and
+    Applications in Python (First Edition) Galit Shmueli, Peter C. Bruce,
+    Peter Gedeck, and Nitin R. Patel (c) 2019 John Wiley & Sons, Inc.
+  homepage: https://www.dataminingbook.com/book/python-edition
+  repository: https://github.com/gedeck/dmba
+  documentation: https://www.dataminingbook.com/book/python-edition
+
+extra:
+  recipe-maintainers:
+    - jan-janssen
